@@ -1,4 +1,4 @@
-SET search_path TO DB1, public;
+
 
 CREATE TABLE branch (
   branch_id SERIAL PRIMARY KEY,
