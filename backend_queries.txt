@@ -1,0 +1,43 @@
+--Selecting all dentist from specific branch--
+SELECT employee_id, first_name, middle_name, last_name
+FROM employee
+WHERE employee_type = 'Dentist' and
+	branch_id = {branch_number}
+
+
+--Add new patients--
+INSERT INTO users (username, password)
+VALUES ('{username}', '{password}')
+RETURNING user_id
+
+INSERT INTO patient (first_name, middle_name, last_name, date_of_birth, gender,
+		     social_security_number, insurance_number,
+  		     civic_number, street_name, city, province, postal_code,
+ 		     phone_number, email_address, user_id)
+VALUES ('{first_name}', '{middle_name}', '{last_name}', '{date_of_birth}', '{gender}',
+		     '{social_security_number}', '{insurance_number}',
+  		     '{civic_number}', '{street_name}', '{city}', '{province}', '{postal_code}',
+ 		     '{phone_number}', '{email_address}', '{user_id}')
+RETURNING patient_id
+
+
+
+--Set appointment--
+INSERT INTO appointment (date, start_time, end_time, appointment_type, room_number,
+                patient_id, employee_id)
+                VALUES ('{date}', '{start_time}', '{end_time}', '{appointment_type}', '{room_number}',
+                        {patient_id}, {employee_id})
+                RETURNING appointment_id
+
+
+--Check appointment--
+SELECT *
+FROM appointment
+WHERE date > NOW() 
+      and patient_id = {patient_id}
+
+
+
+--Check types of procedures available--
+SELECT procedure_type
+FROM procedure
