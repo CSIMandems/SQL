@@ -104,4 +104,4 @@ INSERT INTO Users VALUES
 (59,'Briley Hoffman','password');
 
 SELECT * FROM Users;
--- --DELETE * FROM Users
+
