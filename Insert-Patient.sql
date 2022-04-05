@@ -6,5 +6,19 @@ INSERT INTO patient VALUES
 
 
 
+-- -- ALL FAMILIES IN BRANCH 1
+-- --FAMILY#1 regular family, all same address all patients, all same insurance
+-- (51,'Evan Harrington')
+-- (52,'Cheyanne Harrington')<-RP for kids -- insert into rp first // done
+--RP :(RP ID : 1,'Cheyanne',NULL,'Harrington'	,'1990-06-14','F',425844905,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Cheyanne.Harrington@responsibleparty.com'	,52),
+-- (53,'Malcolm Harrington')
+-- (54,'Alison Harrington')
+
+(4,'Evan',NULL,	'Harrington','1980-12-18','M',790468518,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Evan.Harrington@patient.com'	,51,NULL),
+(5,'Cheyanne',NULL,	'Harrington','1990-06-14','F',425844905,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Cheyanne.Harrington@responsibleparty.com'	,52,NULL),
+(6,'Malcolm',NULL,	'Harrington','2000-08-24','M',407822169,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Malcolm.Harrington@patient.com'	,53,1),
+(7,'Alison',NULL,	'Harrington','2003-02-11','F',988603286,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Alison.Harrington@patient.com'	,54,1),
+
+
 SELECT * FROM patient;
 -- -- DELETE * FROM patient;
