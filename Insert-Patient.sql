@@ -41,4 +41,4 @@ INSERT INTO patient VALUES
 
 
 SELECT * FROM patient;
--- -- DELETE * FROM patient;
+
