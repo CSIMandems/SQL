@@ -13,4 +13,3 @@ INSERT INTO Branch VALUES
 
 
 SELECT * FROM Branch;
---DELETE FROM Branch *;
