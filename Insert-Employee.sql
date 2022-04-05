@@ -21,4 +21,4 @@ INSERT INTO employee VALUES
 
 
 SELECT * FROM employee;
---DELETE * FROM employee
+
