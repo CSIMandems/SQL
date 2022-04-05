@@ -61,23 +61,23 @@ INSERT INTO Users VALUES
 (37,'Jaelyn Owens','password'),
 (38,'Clara Wu','password'),
 
--- BRANCH  2
+-- BRANCH  4
 (39,'Octavio Dudley','password'),
 (40,'Melina Yu','password'),
 (41,'Marlee Roman','password'),
 
--- BRANCH  3
+-- BRANCH  7
 (42,'Thomas Stevens','password'),
 (43,'Lilianna Perez','password'),
 (44,'Elisabeth Dalton','password'),
 
--- BRANCH  4
+-- BRANCH  2
 (45,'Diego Burnett','password'),
 -- BRANCH  5
 (46,'Diego Hernandez','password'),
 -- BRANCH  6
 (47,'Kingston Foley','password'),
--- BRANCH  7
+-- BRANCH  3
 (48,'Catalina Bray','password'),
 -- BRANCH  8
 (49,'Zachery Miles','password'),
