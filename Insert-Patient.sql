@@ -20,5 +20,16 @@ INSERT INTO patient VALUES
 (7,'Alison',NULL,	'Harrington','2003-02-11','F',988603286,31242080627392556735,26,'Mother Lane'		,'Ottawa','Ontario','D9Y3H4',6132413174,'Alison.Harrington@patient.com'	,54,1),
 
 
+-- --FAMILY #2 regular family, all different address for kids (ie divorced or adopted kids or something idk , stepmother is taking the kids to dentist, thus the kids have seperate mailing addresses, but stepmother is the rp at the dentist, and they are under her insurance)
+-- (55,'Katelyn Terry')<-RP for kids -- insert into RP first // done
+--RP : -- (RP ID : 2,'Katelyn','Brooke','Terry'	,'1991-12-18','F',790084336,87161421096627391973,469,'Stepmother Way'	,'Ottawa','Ontario','D9Y2R9',6135809128,'Katelyn.Terry@responsibleparty.com'		,55);
+-- (56,'Tyler Terry')
+-- (57,'Kale Terry')
+(8,'Katelyn','Brooke','Terry'	,	'1991-12-18','F',	790084336,87161421096627391973,469,'Stepmother Way'	,'Ottawa','Ontario','D9Y2R9',6135809128,'Katelyn.Terry@responsibleparty.com'		,55,NULL),
+(9,'Tyler',NULL,'Terry'	,			'2004-01-13','M',	637701900,87161421096627391973,34,'Not Stepmother Way'	,'Ottawa','Ontario','D9Y6R3',6135370356,'Tyler.Terry@patient.com'		,56,2),
+(10,'Kale',NULL,'Terry'	,			'2007-02-21','M',	601247645,87161421096627391973,34,'Not Stepmother Way'	,'Ottawa','Ontario','D9Y6R3',6135370356,'Kale.Terry@patient.com'		,57,2),
+
+
+
 SELECT * FROM patient;
 -- -- DELETE * FROM patient;
