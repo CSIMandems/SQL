@@ -86,14 +86,14 @@ INSERT INTO Users VALUES
 
 
 -- ALL FAMILIES IN BRANCH 1
---FAMILY#1 regular family, all same address
+--FAMILY#1 regular family, all same address all patients
 (51,'Evan Harrington','password'),
 (52,'Cheyanne Harrington','password'),
 (53,'Malcolm Harrington','password'),
 (54,'Alison Harrington','password'),
 
 
---FAMILY #2 regular family, all same address
+--FAMILY #2 regular family, all same address, all patients
 (55,'Katelyn Terry','password'),
 (56,'Tyler Terry','password'),
 (57,'Kale Terry','password'),
