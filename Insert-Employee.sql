@@ -12,5 +12,13 @@ INSERT INTO employee VALUES
 (8,'Hygenist',	'Kasen',NULL,'Solis',	'1993-07-21','M',809823770,183,		'Orchid Way',		'Montreal','Quebec','A6UH9K',	5142439780,		'Kasen.Solis@hygenist.com',		258,697895399617,'$30.00',6,	4,8);
 
 
+--	-- BRANCH DETAILS	-- (007,352,'Donald St','Toronto','Ontario','A6U8V5'),
+(9,'Dentist',		'Diana ',NULL,'Gilmore',			'1978-08-08',	'F',762099689,		'658',			'Cow Court',		'Toronto',	'Ontario',	'A6U3D9',	4163367249,		'Diana.Gilmore@dentist.com',					491,816925793256,'$60.00',		NULL,7,9),							
+(10,'Manager',		'Jayden',NULL,'Haney',				'1994-06-24',	'F',554674883,		'5952',			'Lamb Lane',		'Toronto',	'Ontario',	'A6UQ8H',	4165431601,		'Jayden.Haney@manager.com',						201,905674814363,'$40.00',		NULL,7,10),
+(11,'Receptionist',	'Nylah',NULL,'Mcclain',				'1992-01-28',	'F',714757933,		'13',			'Goat Crescent',	'Toronto',	'Ontario',	'A6UC2G',	4160612015,		'Nylah.Mcclain@receptionist.com',				735,013824160654,'$30.00',		10,7,11),
+(12,'Hygenist',		'Jackson',NULL,'Cobb',				'1993-12-19',	'M',342584474,		'285',			'Chicken Road',		'Toronto',	'Ontario',	'A6UB4Y',	4160330932,		'Jackson.Cobb@hygenist.com',					957,828477608483,'$30.00',		10,7,12);
+
+
+
 SELECT * FROM employee;
 --DELETE * FROM employee
