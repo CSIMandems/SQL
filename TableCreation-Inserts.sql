@@ -735,6 +735,22 @@ CREATE TABLE procedure (
 
 );
 
+INSERT INTO procedure(procedure_code,procedure_type,procedure_description) VALUES
+('CLEAN','Teeth Cleaning','We will clean, polish, and rinse your teeth to remove any tartar and plaque that have built up on the surface of your teeth.'),
+('WHITE','Teeth Whitening','Although teeth are not naturally meant to be completely white, many Canadians want a brighter smile. Responding to this desire, a wide range of "whitening" options has become available to consumers.'),
+('ROOT','Root Canal','When a tooth is cracked or has a deep cavity, bacteria can enter the pulp tissue and germs can cause an infection inside the tooth. If left untreated, an abscess may form. If the infected tissue is not removed, pain and swelling can result. This can not only injure your jawbones, but it is also detrimental to your overall health.'),
+('CFILL','Cavity Filling','There are two different kinds of fillings: direct and indirect. Direct fillings are fillings placed into a prepared cavity in a single visit. They include silver amalgam, glass ionomers, resin ionomers, and composite (resin) fillings. Indirect fillings generally require two or more visits. They include inlays, onlays, and veneers. They are used when a tooth has too much damage to support a filling but not enough to necessitate a crown.'),
+('MOLAR','Wisdom Teeth Extraction','Wisdom teeth are types of molars found in the very back of your mouth. They usually appear in the late teens or early twenties, but may become impacted (fail to erupt) due to lack of room in the jaw or angle of entry. When a wisdom tooth is impacted, it may need to be removed. If it is not removed, you may develop gum tenderness, swelling, or even severe pain. Impacted wisdom teeth that are partially or fully erupted tend to be quite difficult to clean and are susceptible to tooth decay, recurring infections, and even gum disease.'),
+('IMPLT','Dental Implant','Dental implants are used to replace missing roots and support replacement teeth.'),
+('VENER','Bonding & Veneers','Bonding and veneers make your teeth look better by changing their colour, shape or spacing.'),
+('XRAY','X-Ray & Imaging','Dental radiographs are commonly called X-rays. Dentists use radiographs for many reasons: to find hidden dental structures, malignant or benign masses, bone loss, and cavities.'),
+('BRACE','Braces & Invisalign ','The goal is to straighten and correct crooked teeth, as straighter teeth are often healthier and easier to take care of. Classic braces use metal and other materials to slowly tighten teeth back into place. Invisalign is less visible and slower acting, but still a very effective method to achieve the same goal.');
+
+
+
+
+
+
 CREATE TABLE fee_charge ( 
 
     fee_id SERIAL PRIMARY KEY, 
@@ -745,7 +761,18 @@ CREATE TABLE fee_charge (
 
 );
 
+INSERT INTO fee_charge(fee_code,charge,procedure_id) VALUES
+-- fee ID , Fee code, Charge '$60.00' , procedure id,
 
+(1,'$80.00',1),
+(2,'$100.00',2),
+(3,'$120.00',3),
+(4,'$130.00',4),
+(5,'$180.00',5),
+(6,'$200.00',6),
+(7,'$4050.00',7),
+(8,'$200.00',8),
+(9,'$3000.00',9);
 
 
 
@@ -764,6 +791,32 @@ CREATE TABLE appointment (
 	employee_id INTEGER REFERENCES employee(employee_id) NOT NULL
 );
 
+INSERT INTO appointment (date,	start_time, end_time,appointment_type, room_number, status, patient_id, employee_id)
+VALUES
+('2022-04-04','09:00:00','9:30:00','Teeth Cleaning',1,'CONFIRMED',1,4),
+('2022-08-04','09:00:00','9:30:00','Teeth Cleaning',2,'UNCONFIRMED',1,4),
+('2022-12-04','09:00:00','9:30:00','Teeth Cleaning',1,'UNCONFIRMED',1,4),
+
+('2022-04-04','10:00:00','10:30:00','Teeth Cleaning',2,'CONFIRMED',2,4),
+('2022-08-04','10:00:00','10:30:00','Teeth Cleaning',3,'CONFIRMED',2,4),
+('2022-12-04','10:00:00','10:30:00','Teeth Cleaning',2,'UNCONFIRMED',2,4),
+
+
+('2022-04-04','11:00:00','11:30:00','Teeth Cleaning',1,'CONFIRMED',3,4),
+('2022-08-04','11:00:00','11:30:00','Teeth Cleaning',2,'CONFIRMED',3,4),
+('2022-12-04','11:00:00','11:30:00','Teeth Cleaning',3,'CONFIRMED',3,4),
+
+
+('2022-04-04','13:00:00','13:30:00','Teeth Cleaning',1,'CONFIRMED',4,4),
+('2022-04-04','13:30:00','14:00:00','Teeth Cleaning',1,'CONFIRMED',5,4),
+
+('2022-04-04','11:00:00','11:30:00','X-Ray',9,'CONFIRMED',6,1),
+('2022-04-04','11:30:00','12:00:00','X-Ray',9,'CONFIRMED',7,1),
+
+
+('2022-04-04','13:00:00','14:00:00','Braces',9,'CONFIRMED',6,1),
+('2022-04-04','14:00:00','15:00:00','Braces',9,'CONFIRMED',7,1);
+
 
 CREATE TABLE insurance_claim (
 
@@ -775,6 +828,28 @@ CREATE TABLE insurance_claim (
 
 
 );
+INSERT INTO insurance_claim (date ,     institution ,     insurance_nbr ,     patient_id)
+VALUES
+('2022-04-04',793,90489026346815766588,1),
+('2022-08-04',793,90489026346815766588,1),
+('2022-12-04',793,90489026346815766588,1),
+
+('2022-04-04',299,86897145633155104943,2),
+('2022-08-04',299,86897145633155104943,2),
+('2022-12-04',299,86897145633155104943,2),
+
+('2022-04-04',776,98370934436219627481,3),
+('2022-08-04',776,98370934436219627481,3),
+('2022-12-04',776,98370934436219627481,3),
+
+
+('2022-04-04',364,31242080627392556735,4),
+('2022-04-04',364,31242080627392556735,5),
+('2022-04-04',364,31242080627392556735,6),
+('2022-04-04',364,31242080627392556735,7),
+('2022-04-04',364,31242080627392556735,6),
+('2022-04-04',364,31242080627392556735,7);
+
 
 
 CREATE TABLE invoice(
@@ -791,6 +866,31 @@ CREATE TABLE invoice(
     patient_id INTEGER REFERENCES patient(patient_id) NOT NULL
 
 );
+INSERT INTO invoice
+(    date,     employee_service_fee,    patient_fee,     insurance_fee,     discount,     penalty,     total_fee,     claim_id,    patient_id)
+VALUES
+-- invoice ID, Date, employee service fee, patient fee, insurance fee, discount, penalty, total fee, claimid, patient id
+('2022-04-04','$30.00','$80.00',NULL,NULL,NULL,'$110.00',1,1),
+('2022-08-04','$30.00','$80.00',NULL,'-$30.00',NULL,'$80.00',2,1),
+('2022-12-04','$30.00','$80.00',NULL,'-$30.00',NULL,'$80.00',3,1),
+
+('2022-04-04','$30.00','$80.00',NULL,NULL,'$50.00','$160.00',4,2),
+('2022-08-04','$30.00','$80.00',NULL,'-$30.00',NULL,'$80.00',5,2),
+('2022-12-04','$30.00','$80.00','-$80.00','-$30.00',NULL,'$0.00',6,2),
+
+('2022-04-04','$30.00','$80.00','-$80.00',NULL,NULL,'$30.00',7,3),
+('2022-08-04','$30.00','$80.00','-$80.00','-$30.00',NULL,'$0.00',8,3),
+('2022-12-04','$30.00','$80.00','-$80.00','-$30.00',NULL,'$0.00',9,3),
+
+
+('2022-04-04','$30.00','$80.00','-$70.00',NULL,NULL,'$40.00',10,4),
+('2022-04-04','$30.00','$80.00','-$70.00',NULL,NULL,'$40.00',11,5),
+
+('2022-04-04','$60.00','$200.00','-$150.00',NULL,NULL,'$110.00',12,6),
+('2022-04-04','$60.00','$200.00','-$150.00',NULL,NULL,'$110.00',13,7),
+('2022-04-04','$60.00','$3000.00','-$2000.00',NULL,NULL,'$1060.00',14,6),
+('2022-04-04','$60.00','$3000.00','-$2000.00',NULL,NULL,'$1060.00',15,7);
+
 
 
 
@@ -807,7 +907,29 @@ CREATE TABLE appointment_procedure (
     invoice_id INTEGER REFERENCES invoice(invoice_id) NOT NULL
 );
 
+INSERT INTO appointment_procedure 
+(date ,    teeth,     material_used ,    procedure_amount,    procedure_id ,    patient_id ,    appointment_id ,    invoice_id)
+VALUES 
+('2022-04-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,1,1,1),
+('2022-08-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,1,2,2),
+('2022-12-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,1,3,3),
 
+('2022-04-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,2,4,4),
+('2022-08-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,2,5,5),
+('2022-12-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,2,6,6),
+
+('2022-04-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,3,7,7),
+('2022-08-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,3,8,8),
+('2022-12-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,3,9,9),
+
+('2022-04-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,4,10,10),
+('2022-04-04','All Teeth','1x Dental Mirror, 2x Dental Scalars, 1x Flouride Polish, 1x Polish Brush Head, 2x Water Flosser',80.00,1,5,11,11),
+
+('2022-04-04','All Teeth','2x Mouth Guard, 1x Lead Vest, 2x Press Mould, 2x Dry Rinse',200.00,8,6,12,12),
+('2022-04-04','All Teeth','2x Mouth Guard, 1x Lead Vest, 2x Press Mould, 2x Dry Rinse',200.00,8,7,13,13),
+
+('2022-04-04','All Teeth','2x Power Chain, 2x Coil, 6x K-Hook, 4x Seperator, 32x Bracket, 8x Bracket Hook',3000.00,9,6,14,14),
+('2022-04-04','All Teeth','2x Power Chain, 2x Coil, 6x K-Hook, 4x Seperator, 32x Bracket, 8x Bracket Hook',3000.00,9,7,15,15);
 
 
 
@@ -828,7 +950,11 @@ CREATE TABLE treatment(
     appointment_id INTEGER REFERENCES appointment(appointment_id) NOT NULL
 );
 
-
+INSERT INTO treatment 
+(  diagnosis,     symptoms ,    teeth ,     treatment ,     medications ,     comments ,     appointment_id)
+VALUES
+('Malocclusion Moderate','Tooth aches, overbite and misaligned jaw','TOP : Primary incisors & canines, Bottom : Secondary molars','Braces','n/a','n/a',14),
+('Malocclusion Severe','Overbite and jaw pain','TOP : Primary incisors, canines, pre-molars and molars','Braces','n/a','n/a',15);
 
 
 
@@ -845,3 +971,58 @@ CREATE TABLE bill(
 	claim_id INTEGER REFERENCES insurance_claim(claim_id)
 	
 );
+INSERT INTO bill 
+(  payment_method ,	card_number ,	patient_portion, 	insurance_portion, 	total_amount , 	appointment_id ,	invoice_id ,	claim_id)
+
+VALUES
+-- bill id , pyment type text, card 16, patient portion, insurance portion, total amoint, appt ID, invoice ID, Claim ID
+('VISA',7463454942974456,'$110.00',NULL,'$110.00',1,1,1),
+('VISA',7463454942974456,'$80.00',NULL,'$80.00',2,2,2),
+('VISA',7463454942974456,'$80.00',NULL,'$80.00',3,3,3),
+
+('DEBIT',8444290261520295,'$160.00',NULL,'$160.00',4,4,4),
+('DEBIT',8444290261520295,'$80.00',NULL,'$80.00',5,5,5),
+('DEBIT',8444290261520295,'$80.00','$-80.00','$0.00',6,6,6),
+
+('CASH',0000000000000000,'$110.00',NULL,'$30.00',7,7,7),
+('CASH',0000000000000000,'$110.00','$-80.00','$0.00',8,8,8),
+('CASH',0000000000000000,'$110.00','$-80.00','$0.00',9,9,9),
+
+('VISA',9686701306869149,'$110.00','$-70.00','$40.00',10,10,10),
+('VISA',9686701306869149,'$110.00','$-70.00','$40.00',11,11,11),
+
+('VISA',9686701306869149,'$200.00','$-150.00','$110.00',12,12,12),
+('VISA',9686701306869149,'$200.00','$-150.00','$110.00',13,13,13),
+
+('VISA',9686701306869149,'$3000.00','$-2000.00','$1060.00',14,14,14),
+('VISA',9686701306869149,'$3000.00','$-2000.00','$1060.00',15,15,15);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
