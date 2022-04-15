@@ -1,4 +1,5 @@
-INSERT INTO insurance_claim VALUES
+INSERT INTO insurance_claim (date ,     institution ,     insurance_nbr ,     patient_id)
+VALUES
 (1,'2022-04-04',793,90489026346815766588,1),
 (2,'2022-08-04',793,90489026346815766588,1),
 (3,'2022-12-04',793,90489026346815766588,1),
