@@ -1,6 +1,6 @@
 
 INSERT INTO invoice VALUES
-
+-- invoice ID, Date, employee service fee, patient fee, insurance fee, discount, penalty, total fee, claimid, patient id
 (1,'2022-04-04','$30.00','$80.00',NULL,NULL,NULL,'$110.00',1,1),
 (2,'2022-08-04','$30.00','$80.00',NULL,'-$30.00',NULL,'$80.00',2,1),
 (3,'2022-12-04','$30.00','$80.00',NULL,'-$30.00',NULL,'$80.00',3,1),
