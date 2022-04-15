@@ -1,4 +1,4 @@
-INSERT INTO procedure VALUES
+INSERT INTO procedure(procedure_code,procedure_type,procedure_description) VALUES
 ('1','CLEAN','Teeth Cleaning','We will clean, polish, and rinse your teeth to remove any tartar and plaque that have built up on the surface of your teeth.'),
 ('2','WHITE','Teeth Whitening','Although teeth are not naturally meant to be completely white, many Canadians want a brighter smile. Responding to this desire, a wide range of "whitening" options has become available to consumers.'),
 ('3','ROOT','Root Canal','When a tooth is cracked or has a deep cavity, bacteria can enter the pulp tissue and germs can cause an infection inside the tooth. If left untreated, an abscess may form. If the infected tissue is not removed, pain and swelling can result. This can not only injure your jawbones, but it is also detrimental to your overall health.'),
