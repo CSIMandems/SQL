@@ -186,7 +186,7 @@ VALUES
 ('Dentist',		'Felicity',NULL,'Booker',	'1968-01-05','F',644818688,1410,	'Rose Ave',			'Montreal','Quebec','A6U9D2',	5141928801,		'Felicity.Booker@dentist.com',			513,511665382754,'$60.00',NULL,	4,5),
 ('Manager',		'Blaine',NULL,'Mcgee',	'1977-04-14','M',751428448,589,		'Lilac Lane',		'Montreal','Quebec','A6U3H5',	5141078812,		'Blaine.Mcgee@manager.com',			976,325373177026,'$40.00',NULL,	4,6),
 ('Receptionist','Emery',NULL,'Richards',	'1983-06-16','M',846533586,'648-B89',	'Lily Circle',	'Montreal','Quebec','A6UQ2U',	5149684458,		'Emery.Richards@receptionist.com',	168,942059846868,'$30.00',6,	4,7),
-('Hygienist',	'Kasen',NULL,'Solis',	'1993-07-21','M',809823770,183,		'Orchid Way',		'Montreal','Quebec','A6UH9K',	5142439780,		'Kasen.Solis@hygenist.com',		258,697895399617,'$30.00',6,	4,8);
+('Hygienist',	'Kasen',NULL,'Solis',	'1993-07-21','M',809823770,183,		'Orchid Way',		'Montreal','Quebec','A6UH9K',	5142439780,		'Kasen.Solis@hygenist.com',		258,697895399617,'$30.00',6,	4,8),
 
 
 --	-- BRANCH DETAILS	-- (007,352,'Donald St','Toronto','Ontario','A6U8V5'),
@@ -263,7 +263,7 @@ CREATE TABLE patient (
   responsible_party_id integer REFERENCES responsible_party(responsible_party_id)
 );
 
-NSERT INTO patient (first_name, middle_name, 
+INSERT INTO patient (first_name, middle_name, 
 last_name, date_of_birth, gender, social_security_number, insurance_number, civic_number, street_name, city, province, postal_code, phone_number, email_address, user_id, responsible_party_id)
 
 VALUES
