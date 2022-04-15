@@ -36,7 +36,18 @@ FROM appointment
 WHERE date > NOW() 
       and patient_id = {patient_id}
 
+--Add new employee--
 
+INSERT INTO employee (employee_type, first_name, middle_name, last_name, date_of_birth, 
+gender, social_security_number, civic_number, street_name, city, province, postal_code, phone_number, 
+email_address, institution_number, account_number, salary, manager_id, branch_id, user_id)
+
+VALUES ('{employee_type}', '{first_name}', '{middle_name}', '{last_name}', '{date_of_birth}', '{gender}',
+		     '{social_security_number}',
+  		     '{civic_number}', '{street_name}', '{city}', '{province}', '{postal_code}',
+ 		     '{phone_number}', '{email_address}', '{institution_number}', '{account_number}',  
+                 '{salary}', '{manager_id}', '{branch_id}', '{user_id}')
+RETURNING employee_id
 
 --Check types of procedures available--
 SELECT procedure_type
