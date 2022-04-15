@@ -1,4 +1,4 @@
-INSERT INTO review VALUES (professionalism,cleanliness,communication,value,patient_id,branch_id)
+INSERT INTO review(professionalism,cleanliness,communication,value,patient_id,branch_id) VALUES 
 
 
 ( 3 , 1 , 2 , 5 , 8 , 4 ) ,
